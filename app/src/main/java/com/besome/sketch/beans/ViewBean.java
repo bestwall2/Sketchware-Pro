@@ -147,7 +147,7 @@ public class ViewBean extends nA implements Parcelable {
         translationY = 0;
         scaleX = 1.0f;
         scaleY = 1.0f;
-        max = 100;
+        max = 50;
         progress = 0;
         firstDayOfWeek = 1;
         adSize = "";
