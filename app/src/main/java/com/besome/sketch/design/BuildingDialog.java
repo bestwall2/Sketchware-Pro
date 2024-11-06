@@ -23,7 +23,7 @@ public class BuildingDialog extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setCancelable(true);
-        setCanceledOnTouchOutside(false);
+        setCanceledOnTouchOutside(true);
 
         setContentView(R.layout.build_progress_msg_box);
 
