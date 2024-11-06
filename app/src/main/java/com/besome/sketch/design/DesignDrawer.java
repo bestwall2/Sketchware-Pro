@@ -59,7 +59,7 @@ public class DesignDrawer extends LinearLayout implements View.OnClickListener {
                 .applyToView(bottomMenusLayout);
         /* Add collection item */
         bottomMenusLayout.addView(addDrawerItem(1, false,
-                R.drawable.ic_bookmark_red_48dp, R.string.design_drawer_menu_title_collection, R.string.design_drawer_menu_description_collection
+                R.drawable.ic_mtrl_bookmark, R.string.design_drawer_menu_title_collection, R.string.design_drawer_menu_description_collection
         ));
         /* Add built-in Library Manager (AppCompat, Firebase, AdMob, Google Maps SDK) */
         /* INCLUDES SECTION SEPARATOR */
@@ -92,7 +92,7 @@ public class DesignDrawer extends LinearLayout implements View.OnClickListener {
         ));
         /* Add Asset Manager */
         menusLayout.addView(addDrawerItem(10, false,
-                R.drawable.file_48_blue, R.string.text_title_menu_assets, R.string.text_subtitle_menu_assets
+                R.drawable.ic_mtrl_file, R.string.text_title_menu_assets, R.string.text_subtitle_menu_assets
         ));
         /* Add Permission Manager */
         menusLayout.addView(addDrawerItem(11, false,
