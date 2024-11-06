@@ -64,31 +64,31 @@ public class DesignDrawer extends LinearLayout implements View.OnClickListener {
         /* Add built-in Library Manager (AppCompat, Firebase, AdMob, Google Maps SDK) */
         /* INCLUDES SECTION SEPARATOR */
         menusLayout.addView(addDrawerItem(3, true,
-                R.drawable.categorize_48, R.string.design_drawer_menu_title_library, R.string.design_drawer_menu_description_library
+                R.drawable.category_24px, R.string.design_drawer_menu_title_library, R.string.design_drawer_menu_description_library
         ));
         /* Add View Manager */
         menusLayout.addView(addDrawerItem(4, false,
-                R.drawable.multiple_devices_48, R.string.design_drawer_menu_title_view, R.string.design_drawer_menu_description_view
+                R.drawable.devices_24px, R.string.design_drawer_menu_title_view, R.string.design_drawer_menu_description_view
         ));
         /* Add Image Manager */
         menusLayout.addView(addDrawerItem(5, false,
-                R.drawable.ic_picture_48dp, R.string.design_drawer_menu_title_image, R.string.design_drawer_menu_description_image
+                R.drawable.image_24px, R.string.design_drawer_menu_title_image, R.string.design_drawer_menu_description_image
         ));
         /* Add Sound Manager */
         menusLayout.addView(addDrawerItem(6, false,
-                R.drawable.ic_sound_wave_48dp, R.string.design_drawer_menu_title_sound, R.string.design_drawer_menu_description_sound
+                R.drawable.library_music_24px, R.string.design_drawer_menu_title_sound, R.string.design_drawer_menu_description_sound
         ));
         /* Add Font Manager */
         menusLayout.addView(addDrawerItem(7, false,
-                R.drawable.ic_font_48dp, R.string.design_drawer_menu_title_font, R.string.design_drawer_menu_description_font
+                R.drawable.brand_family_24px, R.string.design_drawer_menu_title_font, R.string.design_drawer_menu_description_font
         ));
         /* Add Java Manager */
         menusLayout.addView(addDrawerItem(8, false,
-                R.drawable.java_96, R.string.text_title_menu_java, R.string.text_subtitle_menu_java
+                R.drawable.developer_mode_24px, R.string.text_title_menu_java, R.string.text_subtitle_menu_java
         ));
         /* Add Resource Manager */
         menusLayout.addView(addDrawerItem(9, false,
-                R.drawable.file_app_icon, R.string.text_title_menu_resource, R.string.text_subtitle_menu_resource
+                R.drawable.bookmark_manager_24px, R.string.text_title_menu_resource, R.string.text_subtitle_menu_resource
         ));
         /* Add Asset Manager */
         menusLayout.addView(addDrawerItem(10, false,
@@ -96,23 +96,23 @@ public class DesignDrawer extends LinearLayout implements View.OnClickListener {
         ));
         /* Add Permission Manager */
         menusLayout.addView(addDrawerItem(11, false,
-                R.drawable.plugin_purple_96, R.string.text_title_menu_permission, R.string.text_subtitle_menu_permission
+                R.drawable.signature_24px, R.string.text_title_menu_permission, R.string.text_subtitle_menu_permission
         ));
         /* Add AppCompat Injection Manager */
         menusLayout.addView(addDrawerItem(12, false,
-                R.drawable.ic_property_inject, R.string.design_drawer_menu_injection, R.string.design_drawer_menu_injection_subtitle
+                R.drawable.vaccines_24px, R.string.design_drawer_menu_injection, R.string.design_drawer_menu_injection_subtitle
         ));
         /* Add AndroidManifest Manager */
         menusLayout.addView(addDrawerItem(13, false,
-                R.drawable.icon8_code_am, R.string.design_drawer_menu_androidmanifest, R.string.design_drawer_menu_androidmanifest_subtitle
+                R.drawable.integration_instructions_24px, R.string.design_drawer_menu_androidmanifest, R.string.design_drawer_menu_androidmanifest_subtitle
         ));
         /* Add Used Custom Blocks */
         menusLayout.addView(addDrawerItem(20, false,
-                R.drawable.block_96_blue, R.string.design_drawer_menu_customblocks, R.string.design_drawer_menu_customblocks_subtitle
+                R.drawable.code_blocks_24px, R.string.design_drawer_menu_customblocks, R.string.design_drawer_menu_customblocks_subtitle
         ));
         /* Add Local library Manager */
         menusLayout.addView(addDrawerItem(14, false,
-                R.drawable.open_box_48, R.string.text_title_menu_local_library, R.string.text_subtitle_menu_local_library
+                R.drawable.package_2_24px, R.string.text_title_menu_local_library, R.string.text_subtitle_menu_local_library
         ));
         /* Add Native library Manager */
         menusLayout.addView(addDrawerItem(19, false,
