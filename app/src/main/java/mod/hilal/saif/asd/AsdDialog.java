@@ -108,19 +108,19 @@ public class AsdDialog extends Dialog implements DialogInterface.OnDismissListen
                         SrcCodeEditor.showSwitchThemeDialog(act, codeEditor, (dialog, which) -> {
                             SrcCodeEditor.selectTheme(codeEditor, which);
                             AsdDialog.pref.edit().putInt("dlg_theme", which).apply();
-                            if (isDark()) {
-                                lin.setBackgroundColor(ContextCompat.getColor(this, R.attr.colorSurface));
-                                save.setBackground(new DialogButtonGradientDrawable()
-                                        .getIns((int) getDip(4), 0, 0xff333333, 0xff333333));
-                                cancel.setBackground(new DialogButtonGradientDrawable()
-                                        .getIns((int) getDip(4), 0, 0xff333333, 0xff333333));
-                            } else {
-                                lin.setBackgroundColor(ContextCompat.getColor(this, R.attr.colorSurface));
-                                save.setBackground(new DialogButtonGradientDrawable()
-                                        .getIns((int) getDip(4), 0, 0xff2196f3, 0xff2196f3));
-                                cancel.setBackground(new DialogButtonGradientDrawable()
-                                        .getIns((int) getDip(4), 0, 0xff2196f3, 0xff2196f3));
-                            }
+                        if (isDark()) {
+                            lin.setBackgroundColor(ContextCompat.getColor(getContext(), R.attr.colorSurface));
+                            save.setBackground(new DialogButtonGradientDrawable()
+                                    .getIns((int) getDip(4), 0, 0xff333333, 0xff333333));
+                            cancel.setBackground(new DialogButtonGradientDrawable()
+                                    .getIns((int) getDip(4), 0, 0xff333333, 0xff333333));
+                        } else {
+                            lin.setBackgroundColor(ContextCompat.getColor(getContext(), R.attr.colorSurface));
+                            save.setBackground(new DialogButtonGradientDrawable()
+                                    .getIns((int) getDip(4), 0, 0xff2196f3, 0xff2196f3));
+                            cancel.setBackground(new DialogButtonGradientDrawable()
+                                    .getIns((int) getDip(4), 0, 0xff2196f3, 0xff2196f3));
+                        }
                             dialog.dismiss();
                         });
                         break;
