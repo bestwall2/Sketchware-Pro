@@ -7,7 +7,7 @@
         android:id="@+id/cardview1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:cardBackgroundColor="?attr/colorSurface"
+        android:background="?attr/colorSurface"
         app:cardElevation="10dp"
         app:cardCornerRadius="20dp">
         <LinearLayout

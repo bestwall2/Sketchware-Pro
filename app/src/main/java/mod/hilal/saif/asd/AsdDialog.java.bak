@@ -18,12 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.content.res.TypedArray;
-import android.graphics.Color;
-import android.os.Build;
-import androidx.annotation.ColorInt;
-import androidx.annotation.RequiresApi;
-import androidx.core.content.ContextCompat;
+
 import com.besome.sketch.editor.LogicEditorActivity;
 import pro.sketchware.R;
 
@@ -109,13 +104,13 @@ public class AsdDialog extends Dialog implements DialogInterface.OnDismissListen
                             SrcCodeEditor.selectTheme(codeEditor, which);
                             AsdDialog.pref.edit().putInt("dlg_theme", which).apply();
                             if (isDark()) {
-                                lin.setBackgroundColor(ContextCompat.getColor(this, R.attr.colorSurface));
+                                lin.setBackgroundColor(0xff292929);
                                 save.setBackground(new DialogButtonGradientDrawable()
                                         .getIns((int) getDip(4), 0, 0xff333333, 0xff333333));
                                 cancel.setBackground(new DialogButtonGradientDrawable()
                                         .getIns((int) getDip(4), 0, 0xff333333, 0xff333333));
                             } else {
-                                lin.setBackgroundColor(ContextCompat.getColor(this, R.attr.colorSurface));
+                                lin.setBackgroundColor(Color.WHITE);
                                 save.setBackground(new DialogButtonGradientDrawable()
                                         .getIns((int) getDip(4), 0, 0xff2196f3, 0xff2196f3));
                                 cancel.setBackground(new DialogButtonGradientDrawable()
