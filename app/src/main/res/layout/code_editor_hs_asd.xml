@@ -1,24 +1,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" <!-- Added namespace -->
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?colorSurface"
     android:orientation="vertical">
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:cardBackgroundColor="?attr/colorSurface"
+        app:cardBackgroundColor="?colorSurface"
         app:cardElevation="10dp"
         app:cardCornerRadius="20dp">
+
         <LinearLayout
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/colorSurface"
+            android:background="?colorSurface"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp">
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -26,7 +29,7 @@
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:orientation="vertical"
-                android:paddingLeft="12dp">
+                android:paddingStart="12dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -53,7 +56,7 @@
                 android:id="@+id/menu_view_redo"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
                 android:padding="6dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_mtrl_redo" />
@@ -62,7 +65,7 @@
                 android:id="@+id/save"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
                 android:padding="6dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_mtrl_save" />
@@ -71,15 +74,15 @@
                 android:id="@+id/more"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
                 android:padding="6dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_mtrl_more_vertical" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
     <io.github.rosemoe.sora.widget.CodeEditor
         android:id="@+id/editor"
-        style="@style/AppTheme.Et"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
