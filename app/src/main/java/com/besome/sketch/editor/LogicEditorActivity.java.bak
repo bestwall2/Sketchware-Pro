@@ -1540,8 +1540,7 @@ public class LogicEditorActivity extends BaseAppCompatActivity implements View.O
             asdDialog.show();
             
             // Set the save and cancel listeners for the AsdDialog
-            // Provide a boolean value, for example, 'true'
-            asdDialog.saveLis(this, true, ss, asdDialog);  // <-- Provide the missing boolean value
+            asdDialog.saveLis(this, ss, asdDialog);
             asdDialog.cancelLis(asdDialog);
         
             // Dismiss the current dialog

@@ -748,23 +748,13 @@ public class ExtraMenuBean {
         });
         dialog.a(Helper.getResString(R.string.common_word_cancel), Helper.getDialogDismissListener(dialog));
         dialog.configureDefaultButton("Code Editor", v -> {
-            // Create an instance of AsdDialog
-            AsdDialog asdDialog = new AsdDialog(logicEditor);
-            
-            // Set the content for the dialog
-            asdDialog.setCon(menu.getArgValue().toString());
-            
-            // Show the AsdDialog
-            asdDialog.show();
-            
-            // Set the save and cancel listeners for the AsdDialog
-            asdDialog.saveLis(logicEditor, true, menu, asdDialog);  // Pass the required parameters
-            asdDialog.cancelLis(asdDialog);  // Pass the AsdDialog instance for cancel
-            
-            // Dismiss the current dialog
+            AsdAllEditor editor = new AsdAllEditor(logicEditor);
+            editor.setCon(menu.getArgValue().toString());
+            editor.show();
+            editor.saveLis(logicEditor, menu);
+            editor.cancelLis(editor);
             dialog.dismiss();
         });
-        
         dialog.show();
     }
 
