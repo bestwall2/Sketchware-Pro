@@ -7,13 +7,21 @@ import java.util.regex.Pattern;
 
 public class SyntaxScheme {
 
-    public static final String COMMENTS_COLOR = "#880000";
-    public static final String NOT_WORD_COLOR = "#656600";
-    public static final String NUMBERS_COLOR = "#006766";
-    public static final String PRIMARY_COLOR = "#000000";
-    public static final String QUOTES_COLOR = "#008800";
-    public static final String SECONDARY_COLOR = "#010088";
-    public static final String VARIABLE_COLOR = "#660066";
+    // Define color constants for both light and dark mode
+    public static final String LIGHT_COMMENTS_COLOR = "#880000";   // Light mode comment color
+    public static final String DARK_COMMENTS_COLOR = "#FFAAAA";     // Dark mode comment color
+    public static final String LIGHT_NOT_WORD_COLOR = "#656600";    // Light mode non-word color
+    public static final String DARK_NOT_WORD_COLOR = "#A1A100";     // Dark mode non-word color
+    public static final String LIGHT_NUMBERS_COLOR = "#006766";     // Light mode numbers color
+    public static final String DARK_NUMBERS_COLOR = "#66B2B2";      // Dark mode numbers color
+    public static final String LIGHT_PRIMARY_COLOR = "#000000";     // Light mode primary color
+    public static final String DARK_PRIMARY_COLOR = "#FFFFFF";      // Dark mode primary color
+    public static final String LIGHT_QUOTES_COLOR = "#008800";      // Light mode quotes color
+    public static final String DARK_QUOTES_COLOR = "#00FF00";       // Dark mode quotes color
+    public static final String LIGHT_SECONDARY_COLOR = "#010088";   // Light mode secondary color
+    public static final String DARK_SECONDARY_COLOR = "#6699FF";    // Dark mode secondary color
+    public static final String LIGHT_VARIABLE_COLOR = "#660066";    // Light mode variable color
+    public static final String DARK_VARIABLE_COLOR = "#FF66FF";     // Dark mode variable color
 
     private static final String[] mJavaPattern = new String[12];
     private static final String[] mXmlPattern = new String[4];
@@ -28,33 +36,36 @@ public class SyntaxScheme {
         initializeXmlPattern();
     }
 
-    public static ArrayList<SyntaxScheme> JAVA() {
+    // JAVA Syntax Scheme (light and dark mode support)
+    public static ArrayList<SyntaxScheme> JAVA(boolean isDarkMode) {
         ArrayList<SyntaxScheme> arrayList = new ArrayList<>();
-        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[0] + mJavaPattern[1]), Color.parseColor(PRIMARY_COLOR)));
-        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[2] + mJavaPattern[3] + mJavaPattern[4]), Color.parseColor(SECONDARY_COLOR)));
-        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[5]), Color.parseColor(NUMBERS_COLOR)));
-        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[11]), Color.parseColor(NOT_WORD_COLOR)));
-        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[6]), Color.parseColor(PRIMARY_COLOR)));
-        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[10]), Color.parseColor(VARIABLE_COLOR)));
-        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[7]), Color.parseColor(NUMBERS_COLOR)));
-        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[8]), Color.parseColor(QUOTES_COLOR)));
-        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[9]), Color.parseColor(COMMENTS_COLOR)));
+        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[0] + mJavaPattern[1]), Color.parseColor(isDarkMode ? DARK_PRIMARY_COLOR : LIGHT_PRIMARY_COLOR)));
+        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[2] + mJavaPattern[3] + mJavaPattern[4]), Color.parseColor(isDarkMode ? DARK_SECONDARY_COLOR : LIGHT_SECONDARY_COLOR)));
+        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[5]), Color.parseColor(isDarkMode ? DARK_NUMBERS_COLOR : LIGHT_NUMBERS_COLOR)));
+        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[11]), Color.parseColor(isDarkMode ? DARK_NOT_WORD_COLOR : LIGHT_NOT_WORD_COLOR)));
+        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[6]), Color.parseColor(isDarkMode ? DARK_PRIMARY_COLOR : LIGHT_PRIMARY_COLOR)));
+        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[10]), Color.parseColor(isDarkMode ? DARK_VARIABLE_COLOR : LIGHT_VARIABLE_COLOR)));
+        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[7]), Color.parseColor(isDarkMode ? DARK_NUMBERS_COLOR : LIGHT_NUMBERS_COLOR)));
+        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[8]), Color.parseColor(isDarkMode ? DARK_QUOTES_COLOR : LIGHT_QUOTES_COLOR)));
+        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[9]), Color.parseColor(isDarkMode ? DARK_COMMENTS_COLOR : LIGHT_COMMENTS_COLOR)));
         return arrayList;
     }
 
-    public static ArrayList<SyntaxScheme> XML() {
+    // XML Syntax Scheme (light and dark mode support)
+    public static ArrayList<SyntaxScheme> XML(boolean isDarkMode) {
         ArrayList<SyntaxScheme> arrayList = new ArrayList<>();
-        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[0] + mJavaPattern[1]), Color.parseColor(PRIMARY_COLOR)));
-        arrayList.add(new SyntaxScheme(Pattern.compile(mXmlPattern[2]), Color.parseColor(SECONDARY_COLOR)));
-        arrayList.add(new SyntaxScheme(Pattern.compile(mXmlPattern[0]), Color.parseColor(VARIABLE_COLOR)));
-        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[11]), Color.parseColor(NOT_WORD_COLOR)));
-        arrayList.add(new SyntaxScheme(Pattern.compile(mXmlPattern[3]), Color.parseColor(SECONDARY_COLOR)));
-        arrayList.add(new SyntaxScheme(Pattern.compile(mXmlPattern[1]), Color.parseColor(COMMENTS_COLOR)));
-        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[8]), Color.parseColor(QUOTES_COLOR)));
+        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[0] + mJavaPattern[1]), Color.parseColor(isDarkMode ? DARK_PRIMARY_COLOR : LIGHT_PRIMARY_COLOR)));
+        arrayList.add(new SyntaxScheme(Pattern.compile(mXmlPattern[2]), Color.parseColor(isDarkMode ? DARK_SECONDARY_COLOR : LIGHT_SECONDARY_COLOR)));
+        arrayList.add(new SyntaxScheme(Pattern.compile(mXmlPattern[0]), Color.parseColor(isDarkMode ? DARK_VARIABLE_COLOR : LIGHT_VARIABLE_COLOR)));
+        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[11]), Color.parseColor(isDarkMode ? DARK_NOT_WORD_COLOR : LIGHT_NOT_WORD_COLOR)));
+        arrayList.add(new SyntaxScheme(Pattern.compile(mXmlPattern[3]), Color.parseColor(isDarkMode ? DARK_SECONDARY_COLOR : LIGHT_SECONDARY_COLOR)));
+        arrayList.add(new SyntaxScheme(Pattern.compile(mXmlPattern[1]), Color.parseColor(isDarkMode ? DARK_COMMENTS_COLOR : LIGHT_COMMENTS_COLOR)));
+        arrayList.add(new SyntaxScheme(Pattern.compile(mJavaPattern[8]), Color.parseColor(isDarkMode ? DARK_QUOTES_COLOR : LIGHT_QUOTES_COLOR)));
         return arrayList;
     }
 
-    private void initializeJavaPattern() {
+    
+        private void initializeJavaPattern() {
         mJavaPattern[0] = "\\b(out|print|println|valueOf|toString|concat|equals|for|while|switch|getText\\b";
         mJavaPattern[1] = "|println|printf|print|out|parseInt|round|sqrt|charAt|compareTo|compareToIgnoreCase|concat|contains|contentEquals|equals|length|toLowerCase|trim|toUpperCase|toString|valueOf|substring|startsWith|split|replace|replaceAll|lastIndexOf|size)\\b";
         mJavaPattern[2] = "\\b(public|private|protected|void|switch|case|class|import|package|extends|Activity|TextView|EditText|LinearLayout|CharSequence|String|int|onCreate|ArrayList|float|if|else|for|static|Intent|Button|SharedPreferences\\b";
@@ -77,7 +88,6 @@ public class SyntaxScheme {
     }
 
     public SyntaxScheme getPrimarySyntax() {
-        return new SyntaxScheme(Pattern.compile(mJavaPattern[6]), Color.parseColor(PRIMARY_COLOR));
+        return new SyntaxScheme(Pattern.compile(mJavaPattern[6]), Color.parseColor(LIGHT_PRIMARY_COLOR));
     }
-
 }
