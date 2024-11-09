@@ -92,12 +92,13 @@ public class SrcCodeEditor extends AppCompatActivity {
         boolean auto_c = pref.getBoolean(prefix + "_ac", true);
         boolean auto_complete_symbol_pairs = pref.getBoolean(prefix + "_acsp", true);
 
-        selectTheme(ed, theme);
+    //    selectTheme(ed, theme);
 
         ed.setTextSize(text_size);
         ed.setWordwrap(word_wrap);
         ed.getProps().symbolPairAutoCompletion = auto_complete_symbol_pairs;
         ed.getComponent(EditorAutoCompletion.class).setEnabled(auto_c);
+        ed.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
     }
 
     public static void selectTheme(CodeEditor ed, int which) {
@@ -105,7 +106,7 @@ public class SrcCodeEditor extends AppCompatActivity {
             EditorColorScheme scheme = switch (which) {
                 case 1 -> new SchemeGitHub();
                 case 2 -> new SchemeEclipse();
-                case 3 -> CodeEditorColorSchemes.THEME_DRACULA;
+                case 3 -> new SchemeDarcula();
                 case 4 -> new SchemeVS2019();
                 case 5 -> new SchemeNotepadXX();
                 default -> new EditorColorScheme();
@@ -215,6 +216,7 @@ public class SrcCodeEditor extends AppCompatActivity {
             editor.setEditorLanguage(new JavaLanguage());           
             languageId = 0;
         } else if (title.endsWith(".kt")) {
+            editor.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
             editor.setEditorLanguage(CodeEditorLanguages.loadTextMateLanguage(CodeEditorLanguages.SCOPE_NAME_KOTLIN));
             editor.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
             languageId = 1;
