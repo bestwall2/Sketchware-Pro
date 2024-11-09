@@ -136,7 +136,6 @@ public class SrcViewerActivity extends BaseAppCompatActivity {
     }
 
     private void setCorrectCodeEditorLanguage() {
-    codeViewer.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
     
     /*
 				

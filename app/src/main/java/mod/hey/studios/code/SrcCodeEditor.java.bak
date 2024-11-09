@@ -62,14 +62,16 @@ import mod.jbk.code.CodeEditorColorSchemes;
 import mod.jbk.code.CodeEditorLanguages;
 
 public class SrcCodeEditor extends AppCompatActivity {
-    public static final List<Pair<String, Class<? extends EditorColorScheme>>> KNOWN_COLOR_SCHEMES = List.of(
+
+  /*  public static final List<Pair<String, Class<? extends EditorColorScheme>>> KNOWN_COLOR_SCHEMES = List.of(
             new Pair<>("Default", EditorColorScheme.class),
             new Pair<>("GitHub", SchemeGitHub.class),
             new Pair<>("Eclipse", SchemeEclipse.class),
             new Pair<>("Darcula", SchemeDarcula.class),
             new Pair<>("VS2019", SchemeVS2019.class),
             new Pair<>("NotepadXX", SchemeNotepadXX.class)
-    );
+    );*/
+    
     public static SharedPreferences pref;
     private String beforeContent;
 
@@ -87,7 +89,7 @@ public class SrcCodeEditor extends AppCompatActivity {
         pref = c.getSharedPreferences("hsce", Activity.MODE_PRIVATE);
 
         int text_size = pref.getInt(prefix + "_ts", 12);
-        int theme = pref.getInt(prefix + "_theme", 3);
+      //  int theme = pref.getInt(prefix + "_theme", 3);
         boolean word_wrap = pref.getBoolean(prefix + "_ww", false);
         boolean auto_c = pref.getBoolean(prefix + "_ac", true);
         boolean auto_complete_symbol_pairs = pref.getBoolean(prefix + "_acsp", true);
@@ -98,8 +100,10 @@ public class SrcCodeEditor extends AppCompatActivity {
         ed.setWordwrap(word_wrap);
         ed.getProps().symbolPairAutoCompletion = auto_complete_symbol_pairs;
         ed.getComponent(EditorAutoCompletion.class).setEnabled(auto_c);
-        ed.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
+       // ed.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
     }
+    
+    /*
 
     public static void selectTheme(CodeEditor ed, int which) {
         if (!(ed.getColorScheme() instanceof TextMateColorScheme)) {
@@ -114,7 +118,7 @@ public class SrcCodeEditor extends AppCompatActivity {
 
             ed.setColorScheme(scheme);
         }
-    }
+    }*/
 
     public static void selectLanguage(CodeEditor ed, int which) {
         switch (which) {
@@ -213,10 +217,11 @@ public class SrcCodeEditor extends AppCompatActivity {
         editor.setText(beforeContent);
 
         if (title.endsWith(".java")) {
+            
             editor.setEditorLanguage(new JavaLanguage());           
             languageId = 0;
         } else if (title.endsWith(".kt")) {
-            editor.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
+            
             editor.setEditorLanguage(CodeEditorLanguages.loadTextMateLanguage(CodeEditorLanguages.SCOPE_NAME_KOTLIN));
             editor.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
             languageId = 1;
@@ -384,6 +389,7 @@ public class SrcCodeEditor extends AppCompatActivity {
         pref.edit().putInt("act_ts", (int) (editor.getTextSizePx() / scaledDensity)).apply();
     }
 
+/*
     public static void showSwitchThemeDialog(Activity activity, CodeEditor codeEditor, DialogInterface.OnClickListener listener) {
         EditorColorScheme currentScheme = codeEditor.getColorScheme();
         var knownColorSchemesProperlyOrdered = new ArrayList<>(KNOWN_COLOR_SCHEMES);
@@ -402,7 +408,7 @@ public class SrcCodeEditor extends AppCompatActivity {
                 .setNegativeButton(R.string.common_word_cancel, null)
                 .show();
     }
-
+*/
     public static void showSwitchLanguageDialog(Activity activity, CodeEditor codeEditor, DialogInterface.OnClickListener listener) {
         CharSequence[] languagesList = {
                 "Java",

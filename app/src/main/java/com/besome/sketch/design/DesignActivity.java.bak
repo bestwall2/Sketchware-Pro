@@ -703,17 +703,15 @@ public class DesignActivity extends BaseAppCompatActivity implements View.OnClic
                 editor.setTextSize(14);
                 editor.setText(!source.isEmpty() ? source : "Failed to generate source.");
                 editor.getComponent(Magnifier.class).setWithinEditorForcibly(true);
-                
-                // Load the Dracula color scheme
-                EditorColorScheme draculaColorScheme = CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA);
-                editor.setColorScheme(draculaColorScheme);
-                
-                // Set language based on file extension
+
                 if (filename.endsWith(".xml")) {
+                    editor.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
                     editor.setEditorLanguage(CodeEditorLanguages.loadTextMateLanguage(CodeEditorLanguages.SCOPE_NAME_XML));
                 } else {
+                    editor.setColorScheme(new EditorColorScheme());
                     editor.setEditorLanguage(new JavaLanguage());
                 }
+
                 AlertDialog dialog = dialogBuilder.create();
                 dialog.setView(editor,
                         (int) getDip(24),

@@ -89,7 +89,7 @@ public class SrcCodeEditor extends AppCompatActivity {
         pref = c.getSharedPreferences("hsce", Activity.MODE_PRIVATE);
 
         int text_size = pref.getInt(prefix + "_ts", 12);
-        int theme = pref.getInt(prefix + "_theme", 3);
+      //  int theme = pref.getInt(prefix + "_theme", 3);
         boolean word_wrap = pref.getBoolean(prefix + "_ww", false);
         boolean auto_c = pref.getBoolean(prefix + "_ac", true);
         boolean auto_complete_symbol_pairs = pref.getBoolean(prefix + "_acsp", true);
@@ -100,7 +100,8 @@ public class SrcCodeEditor extends AppCompatActivity {
         ed.setWordwrap(word_wrap);
         ed.getProps().symbolPairAutoCompletion = auto_complete_symbol_pairs;
         ed.getComponent(EditorAutoCompletion.class).setEnabled(auto_c);
-        ed.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
+        ed.setColorScheme(new SchemeDarcula());
+       // ed.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
     }
     
     /*
@@ -217,7 +218,7 @@ public class SrcCodeEditor extends AppCompatActivity {
         editor.setText(beforeContent);
 
         if (title.endsWith(".java")) {
-            editor.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
+            
             editor.setEditorLanguage(new JavaLanguage());           
             languageId = 0;
         } else if (title.endsWith(".kt")) {

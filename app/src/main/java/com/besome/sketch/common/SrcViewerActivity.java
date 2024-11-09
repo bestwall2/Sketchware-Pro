@@ -54,6 +54,7 @@ public class SrcViewerActivity extends BaseAppCompatActivity {
         codeViewer.setEditable(false);
         codeViewer.setTextSize(sourceCodeFontSize);
         codeViewer.setPinLineNumber(true);
+        codeViewer.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
         setCorrectCodeEditorLanguage();
 
         LinearLayout contentLayout = (LinearLayout) (findViewById(R.id.pager_soruce_code).getParent());

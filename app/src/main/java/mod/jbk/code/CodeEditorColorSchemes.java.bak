@@ -1,14 +1,10 @@
 package mod.jbk.code;
 
 import android.content.res.AssetManager;
-import android.os.Environment;
 
 import pro.sketchware.SketchApplication;
 
 import org.eclipse.tm4e.core.registry.IThemeSource;
-
-import java.io.File;
-import java.io.FileInputStream;
 
 import io.github.rosemoe.sora.langs.textmate.TextMateColorScheme;
 import io.github.rosemoe.sora.langs.textmate.registry.FileProviderRegistry;
@@ -25,40 +21,18 @@ public class CodeEditorColorSchemes {
     public static final String THEME_GITHUB = "GitHub.tmTheme";
     public static final String[] THEMES = {THEME_DRACULA, THEME_GITHUB};
 
-    private static final String SD_CARD_PATH = "/storage/emulated/0/.MyProject/";
-
     static {
         AssetManager assets = SketchApplication.getContext().getAssets();
+
         FileProviderRegistry.getInstance().addFileProvider(new AssetsFileResolver(assets));
         ThemeRegistry registry = ThemeRegistry.getInstance();
 
         for (String theme : THEMES) {
-            String path;
-            boolean loadFromSdCard = false;
-            
-            if (THEME_DRACULA.equals(theme)) {
-                // Check if the theme file exists on the SD card
-                File sdCardThemeFile = new File(SD_CARD_PATH, THEME_DRACULA);
-                if (sdCardThemeFile.exists()) {
-                    path = sdCardThemeFile.getAbsolutePath();
-                    loadFromSdCard = true;
-                } else {
-                    path = "textmate/themes/" + theme;
-                }
-            } else {
-                path = "textmate/themes/" + theme;
-            }
-
+            String path = "textmate/themes/" + theme;
             try {
-                if (loadFromSdCard) {
-                    // Load theme from SD card
-                    registry.loadTheme(new ThemeModel(IThemeSource.fromInputStream(
-                            new FileInputStream(path), path, null), theme));
-                } else {
-                    // Load theme from assets
-                    registry.loadTheme(new ThemeModel(IThemeSource.fromInputStream(
-                            FileProviderRegistry.getInstance().tryGetInputStream(path), path, null), theme));
-                }
+                registry.loadTheme(new ThemeModel(IThemeSource.fromInputStream(
+                        FileProviderRegistry.getInstance().tryGetInputStream(path), path, null
+                ), theme));
             } catch (Exception e) {
                 LogUtil.e(TAG, "Failed to load theme '" + theme + "'", e);
             }
