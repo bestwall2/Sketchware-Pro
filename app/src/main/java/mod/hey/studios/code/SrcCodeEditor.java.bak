@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import io.github.rosemoe.sora.widget.component.Magnifier;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
@@ -213,7 +213,6 @@ public class SrcCodeEditor extends AppCompatActivity {
         editor.setTextSize(16);
         beforeContent = FileUtil.readFile(getIntent().getStringExtra("content"));
         editor.setText(beforeContent);
-        editor.getComponent(Magnifier.class).setWithinEditorForcibly(true);
         editor.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
         if (title.endsWith(".java")) {            
             editor.setEditorLanguage(new JavaLanguage());           

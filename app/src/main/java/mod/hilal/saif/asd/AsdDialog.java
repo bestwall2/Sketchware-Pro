@@ -35,6 +35,11 @@ import io.github.rosemoe.sora.widget.component.EditorAutoCompletion;
 import pro.sketchware.utility.SketchwareUtil;
 import mod.hey.studios.code.SrcCodeEditor;
 import mod.hey.studios.util.Helper;
+import io.github.rosemoe.sora.widget.schemes.EditorColorScheme;
+import io.github.rosemoe.sora.widget.schemes.SchemeDarcula;
+import io.github.rosemoe.sora.langs.textmate.TextMateColorScheme;
+import io.github.rosemoe.sora.widget.schemes.EditorColorScheme;
+import android.content.res.Configuration;
 
 public class AsdDialog extends Dialog implements DialogInterface.OnDismissListener {
     private static SharedPreferences pref;
@@ -60,6 +65,20 @@ public class AsdDialog extends Dialog implements DialogInterface.OnDismissListen
         codeEditor.setTypefaceText(Typeface.MONOSPACE);
         codeEditor.setEditorLanguage(new JavaLanguage());
         codeEditor.setText(str);
+        
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+            Configuration configuration = getResources().getConfiguration();
+            boolean isDarkTheme = isDarkTheme = configuration.isNightModeActive();
+            if (isDarkTheme) {
+                codeEditor.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
+            } else {
+                codeEditor.setColorScheme(new EditorColorScheme());
+            }
+        } else {
+            codeEditor.setColorScheme(new EditorColorScheme());
+        }
+        
+        
         SrcCodeEditor.loadCESettings(act, codeEditor, "dlg");
         pref = SrcCodeEditor.pref;
 

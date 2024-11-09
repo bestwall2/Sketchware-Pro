@@ -1540,7 +1540,8 @@ public class LogicEditorActivity extends BaseAppCompatActivity implements View.O
             asdDialog.show();
             
             // Set the save and cancel listeners for the AsdDialog
-            asdDialog.saveLis(this, ss, asdDialog);
+            // Provide a boolean value, for example, 'true'
+            asdDialog.saveLis(this, true, ss, asdDialog);  // <-- Provide the missing boolean value
             asdDialog.cancelLis(asdDialog);
         
             // Dismiss the current dialog
@@ -2456,7 +2457,7 @@ public class LogicEditorActivity extends BaseAppCompatActivity implements View.O
             Configuration configuration = getResources().getConfiguration();
             boolean isDarkTheme = isDarkTheme = configuration.isNightModeActive();
             if (isDarkTheme) {
-                codeEditor.setColorScheme(new SchemeDarcula());
+                codeEditor.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
             } else {
                 codeEditor.setColorScheme(new EditorColorScheme());
             }

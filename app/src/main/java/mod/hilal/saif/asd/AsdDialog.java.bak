@@ -35,6 +35,10 @@ import io.github.rosemoe.sora.widget.component.EditorAutoCompletion;
 import pro.sketchware.utility.SketchwareUtil;
 import mod.hey.studios.code.SrcCodeEditor;
 import mod.hey.studios.util.Helper;
+import io.github.rosemoe.sora.widget.schemes.EditorColorScheme;
+import io.github.rosemoe.sora.widget.schemes.SchemeDarcula;
+import io.github.rosemoe.sora.langs.textmate.TextMateColorScheme;
+import io.github.rosemoe.sora.widget.schemes.EditorColorScheme;
 
 public class AsdDialog extends Dialog implements DialogInterface.OnDismissListener {
     private static SharedPreferences pref;
@@ -60,6 +64,20 @@ public class AsdDialog extends Dialog implements DialogInterface.OnDismissListen
         codeEditor.setTypefaceText(Typeface.MONOSPACE);
         codeEditor.setEditorLanguage(new JavaLanguage());
         codeEditor.setText(str);
+        
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+            Configuration configuration = getResources().getConfiguration();
+            boolean isDarkTheme = isDarkTheme = configuration.isNightModeActive();
+            if (isDarkTheme) {
+                codeEditor.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
+            } else {
+                codeEditor.setColorScheme(new EditorColorScheme());
+            }
+        } else {
+            codeEditor.setColorScheme(new EditorColorScheme());
+        }
+        
+        
         SrcCodeEditor.loadCESettings(act, codeEditor, "dlg");
         pref = SrcCodeEditor.pref;
 
@@ -183,7 +201,7 @@ public class AsdDialog extends Dialog implements DialogInterface.OnDismissListen
         menu.add(0, 4, 0, "Word wrap").setCheckable(true).setChecked(pref.getBoolean("dlg_ww", false));
         menu.add(0, 5, 0, "Pretty print");
         menu.add(0, 6, 0, "Switch language");
-        menu.add(0, 7, 0, "Switch theme");
+        //menu.add(0, 7, 0, "Switch theme");
         menu.add(0, 8, 0, "Auto complete").setCheckable(true).setChecked(pref.getBoolean("dlg_ac", true));
         menu.add(0, 9, 0, "Auto complete symbol pair").setCheckable(true).setChecked(pref.getBoolean("dlg_acsp", true));
     }
