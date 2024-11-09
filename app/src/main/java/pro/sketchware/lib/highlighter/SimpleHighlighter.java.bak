@@ -1,8 +1,5 @@
 package pro.sketchware.lib.highlighter;
 
-import android.app.UiModeManager;
-import android.content.Context;
-import android.content.res.Configuration;
 import android.text.Editable;
 import android.text.Spanned;
 import android.text.TextWatcher;
@@ -24,9 +21,8 @@ public class SimpleHighlighter {
     private final EditText mEditor;
     private final List<SyntaxScheme> syntaxList;
 
-    public SimpleHighlighter(EditText editor) {
+    public SimpleHighlighter(EditText editor, boolean isDarkMode) {
         mEditor = editor;
-        boolean isDarkMode = isDarkMode(mEditor.getContext()); // Auto detect dark mode
         syntaxList = SyntaxScheme.JAVA(isDarkMode); // Pass the dark mode flag here
         init();
     }
@@ -69,11 +65,5 @@ public class SimpleHighlighter {
         for (CharacterStyle span : spans) {
             editable.removeSpan(span);
         }
-    }
-
-    // Method to check if the app is in dark mode or not
-    private boolean isDarkMode(Context context) {
-        int nightModeFlags = context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        return nightModeFlags == Configuration.UI_MODE_NIGHT_YES;
     }
 }
