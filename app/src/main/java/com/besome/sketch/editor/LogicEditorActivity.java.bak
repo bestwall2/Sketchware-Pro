@@ -119,7 +119,8 @@ import mod.hilal.saif.asd.asdforall.AsdAllEditor;
 import mod.hilal.saif.asd.AsdDialog;
 import mod.jbk.editor.manage.MoreblockImporter;
 import mod.jbk.util.BlockUtil;
-
+import io.github.rosemoe.sora.langs.textmate.TextMateColorScheme;
+import io.github.rosemoe.sora.widget.schemes.EditorColorScheme;
 @SuppressLint({"ClickableViewAccessibility", "RtlHardcoded", "SetTextI18n", "DefaultLocale"})
 public class LogicEditorActivity extends BaseAppCompatActivity implements View.OnClickListener, Vs, View.OnTouchListener, MoreblockImporterDialog.CallBack {
 

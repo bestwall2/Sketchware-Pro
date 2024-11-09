@@ -24,6 +24,7 @@ import android.os.Build;
 import androidx.annotation.ColorInt;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
+import android.content.Context;
 import com.besome.sketch.editor.LogicEditorActivity;
 import pro.sketchware.R;
 
@@ -39,6 +40,7 @@ import io.github.rosemoe.sora.widget.schemes.EditorColorScheme;
 import io.github.rosemoe.sora.widget.schemes.SchemeDarcula;
 import io.github.rosemoe.sora.langs.textmate.TextMateColorScheme;
 import io.github.rosemoe.sora.widget.schemes.EditorColorScheme;
+import android.content.res.Configuration;
 
 public class AsdDialog extends Dialog implements DialogInterface.OnDismissListener {
     private static SharedPreferences pref;

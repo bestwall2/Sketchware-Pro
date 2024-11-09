@@ -65,6 +65,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 import pro.sketchware.R;
+import mod.jbk.code.CodeEditorColorSchemes;
 
 import java.io.File;
 import java.lang.ref.WeakReference;
