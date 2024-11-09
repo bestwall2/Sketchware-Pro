@@ -136,6 +136,8 @@ public class SrcViewerActivity extends BaseAppCompatActivity {
     }
 
     private void setCorrectCodeEditorLanguage() {
+    codeViewer.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
+    /*
 				
 		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
                 Configuration configuration = getResources().getConfiguration();
@@ -150,7 +152,7 @@ public class SrcViewerActivity extends BaseAppCompatActivity {
                 codeViewer.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_GITHUB));
             
         }
-				
+				*/
         if (currentPageFileName.endsWith(".xml")) {           
             codeViewer.setEditorLanguage(CodeEditorLanguages.loadTextMateLanguage(CodeEditorLanguages.SCOPE_NAME_XML));
         } else {           

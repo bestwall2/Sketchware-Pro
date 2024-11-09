@@ -92,12 +92,13 @@ public class SrcCodeEditor extends AppCompatActivity {
         boolean auto_c = pref.getBoolean(prefix + "_ac", true);
         boolean auto_complete_symbol_pairs = pref.getBoolean(prefix + "_acsp", true);
 
-        selectTheme(ed, theme);
+    //    selectTheme(ed, theme);
 
         ed.setTextSize(text_size);
         ed.setWordwrap(word_wrap);
         ed.getProps().symbolPairAutoCompletion = auto_complete_symbol_pairs;
         ed.getComponent(EditorAutoCompletion.class).setEnabled(auto_c);
+        ed.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));
     }
 
     public static void selectTheme(CodeEditor ed, int which) {
@@ -270,7 +271,7 @@ public class SrcCodeEditor extends AppCompatActivity {
             toolbarMenu.add(Menu.NONE, Menu.NONE, Menu.NONE, "Word wrap").setCheckable(true).setChecked(local_pref.getBoolean("act_ww", false));
             toolbarMenu.add(Menu.NONE, Menu.NONE, Menu.NONE, "Pretty print");
             toolbarMenu.add(Menu.NONE, Menu.NONE, Menu.NONE, "Select language");
-            toolbarMenu.add(Menu.NONE, Menu.NONE, Menu.NONE, "Select theme");
+            //toolbarMenu.add(Menu.NONE, Menu.NONE, Menu.NONE, "Select theme");
             toolbarMenu.add(Menu.NONE, Menu.NONE, Menu.NONE, "Auto complete").setCheckable(true).setChecked(local_pref.getBoolean("act_ac", true));
             toolbarMenu.add(Menu.NONE, Menu.NONE, Menu.NONE, "Auto complete symbol pair").setCheckable(true).setChecked(local_pref.getBoolean("act_acsp", true));
 
@@ -337,7 +338,7 @@ public class SrcCodeEditor extends AppCompatActivity {
                         editor.getSearcher().stopSearch();
                         editor.beginSearchMode();
                         break;
-
+/*
                     case "Select theme":
                         showSwitchThemeDialog(this, editor, (dialog, which) -> {
                             selectTheme(editor, which);
@@ -345,7 +346,7 @@ public class SrcCodeEditor extends AppCompatActivity {
                             dialog.dismiss();
                         });
                         break;
-
+*/
                     case "Word wrap":
                         item.setChecked(!item.isChecked());
                         editor.setWordwrap(item.isChecked());
