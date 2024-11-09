@@ -136,7 +136,8 @@ public class SrcViewerActivity extends BaseAppCompatActivity {
     }
 
     private void setCorrectCodeEditorLanguage() {
-				
+		
+		
 		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
                 Configuration configuration = getResources().getConfiguration();
                 boolean isDarkTheme = isDarkTheme = configuration.isNightModeActive();
@@ -150,10 +151,13 @@ public class SrcViewerActivity extends BaseAppCompatActivity {
                 codeViewer.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_GITHUB));
             
         }
-				
-        if (currentPageFileName.endsWith(".xml")) {           
+		
+		
+        if (currentPageFileName.endsWith(".xml")) {
+            
             codeViewer.setEditorLanguage(CodeEditorLanguages.loadTextMateLanguage(CodeEditorLanguages.SCOPE_NAME_XML));
-        } else {           
+        } else {
+            
             codeViewer.setEditorLanguage(new JavaLanguage());
         }
     

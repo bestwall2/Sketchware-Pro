@@ -105,7 +105,7 @@ public class SrcCodeEditor extends AppCompatActivity {
             EditorColorScheme scheme = switch (which) {
                 case 1 -> new SchemeGitHub();
                 case 2 -> new SchemeEclipse();
-                case 3 -> new SchemeDarcula();
+                case 3 -> CodeEditorColorSchemes.THEME_DRACULA;
                 case 4 -> new SchemeVS2019();
                 case 5 -> new SchemeNotepadXX();
                 default -> new EditorColorScheme();
@@ -136,13 +136,13 @@ public class SrcCodeEditor extends AppCompatActivity {
 
     }
 
-    public static String prettifyXml(String xml, int indentAmount, Intent extras) {
+        public static String prettifyXml(String xml, int indentAmount, Intent extras) {
         try {
             // Turn xml string into a document
             Document document = DocumentBuilderFactory.newInstance()
                     .newDocumentBuilder()
                     .parse(new InputSource(new ByteArrayInputStream(xml.getBytes(StandardCharsets.UTF_8))));
-
+    
             // Remove whitespaces outside tags
             document.normalize();
             XPath xPath = XPathFactory.newInstance().newXPath();
@@ -152,31 +152,31 @@ public class SrcCodeEditor extends AppCompatActivity {
                             document,
                             XPathConstants.NODESET
                     );
-
+    
             for (int i = 0; i < nodeList.getLength(); ++i) {
                 Node node = nodeList.item(i);
                 node.getParentNode().removeChild(node);
             }
-
+    
             // Setup pretty print options
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
-
+    
             transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", String.valueOf(indentAmount));
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-
+    
             if (extras.hasExtra("disableHeader"))
                 transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-
-
+    
             // Return pretty print xml string
             StringWriter stringWriter = new StringWriter();
             transformer.transform(new DOMSource(document), new StreamResult(stringWriter));
             return stringWriter.toString();
-
+    
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -213,6 +213,7 @@ public class SrcCodeEditor extends AppCompatActivity {
 
         if (title.endsWith(".java")) {
             editor.setEditorLanguage(new JavaLanguage());
+            
             languageId = 0;
         } else if (title.endsWith(".kt")) {
             editor.setEditorLanguage(CodeEditorLanguages.loadTextMateLanguage(CodeEditorLanguages.SCOPE_NAME_KOTLIN));

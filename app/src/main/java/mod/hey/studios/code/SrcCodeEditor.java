@@ -105,7 +105,7 @@ public class SrcCodeEditor extends AppCompatActivity {
             EditorColorScheme scheme = switch (which) {
                 case 1 -> new SchemeGitHub();
                 case 2 -> new SchemeEclipse();
-                case 3 -> new SchemeDarcula();
+                case 3 -> CodeEditorColorSchemes.THEME_DRACULA;
                 case 4 -> new SchemeVS2019();
                 case 5 -> new SchemeNotepadXX();
                 default -> new EditorColorScheme();
@@ -212,7 +212,7 @@ public class SrcCodeEditor extends AppCompatActivity {
         editor.setText(beforeContent);
 
         if (title.endsWith(".java")) {
-            editor.setEditorLanguage(new JavaLanguage());
+            editor.setEditorLanguage(new JavaLanguage());           
             languageId = 0;
         } else if (title.endsWith(".kt")) {
             editor.setEditorLanguage(CodeEditorLanguages.loadTextMateLanguage(CodeEditorLanguages.SCOPE_NAME_KOTLIN));
