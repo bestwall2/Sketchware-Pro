@@ -1,4 +1,4 @@
-package com.besome.sketch.adapters;
+zeepackage com.besome.sketch.adapters;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -185,7 +185,7 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.Projec
         final MyprojectsItemBinding binding;
 
         ProjectViewHolder(MyprojectsItemBinding binding) {
-            super(binding.getRoot());
+            super(binding.getRoot()); 
             this.binding = binding;
         }
     }
