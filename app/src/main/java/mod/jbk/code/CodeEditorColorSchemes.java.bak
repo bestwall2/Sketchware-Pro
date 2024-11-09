@@ -3,6 +3,7 @@ package mod.jbk.code;
 import android.content.res.AssetManager;
 
 import pro.sketchware.SketchApplication;
+import static pro.sketchware.utility.SketchwareUtil.getDip;
 
 import org.eclipse.tm4e.core.registry.IThemeSource;
 
@@ -47,6 +48,7 @@ public class CodeEditorColorSchemes {
             scheme = TextMateColorScheme.create(ThemeRegistry.getInstance());
         } catch (Exception e) {
             LogUtil.e(TAG, "Failed to load theme '" + theme + "', using defaults", e);
+            SketchwareUtil.toastError("setup the default theme");
             scheme = new EditorColorScheme();
         }
 
