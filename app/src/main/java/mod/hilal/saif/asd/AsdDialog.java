@@ -69,7 +69,7 @@ public class AsdDialog extends Dialog implements DialogInterface.OnDismissListen
         codeEditor.setText(str);
         
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
-            Configuration configuration = getResources().getConfiguration();
+            Configuration configuration = act.getResources().getConfiguration();
             boolean isDarkTheme = isDarkTheme = configuration.isNightModeActive();
             if (isDarkTheme) {
                 codeEditor.setColorScheme(CodeEditorColorSchemes.loadTextMateColorScheme(CodeEditorColorSchemes.THEME_DRACULA));

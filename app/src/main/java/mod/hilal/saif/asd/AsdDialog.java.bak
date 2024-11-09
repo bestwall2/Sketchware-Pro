@@ -41,6 +41,7 @@ import io.github.rosemoe.sora.widget.schemes.SchemeDarcula;
 import io.github.rosemoe.sora.langs.textmate.TextMateColorScheme;
 import io.github.rosemoe.sora.widget.schemes.EditorColorScheme;
 import android.content.res.Configuration;
+import mod.jbk.code.CodeEditorColorSchemes;
 
 public class AsdDialog extends Dialog implements DialogInterface.OnDismissListener {
     private static SharedPreferences pref;
