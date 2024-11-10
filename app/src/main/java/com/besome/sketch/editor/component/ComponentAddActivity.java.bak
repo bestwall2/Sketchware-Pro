@@ -183,7 +183,7 @@ public class ComponentAddActivity extends BaseDialogActivity implements View.OnC
         flexboxLayoutManager.setAlignItems(AlignItems.CENTER);
         binding.componentList.setLayoutManager(flexboxLayoutManager);
         componentsAdapter = new ComponentsAdapter();
-        binding.componentList.setHasFixedSize(false);
+        binding.componentList.setHasFixedSize(true);
         binding.componentList.setAdapter(componentsAdapter);
         binding.layoutDescription.setVisibility(View.GONE);
         componentNameValidator = new ZB(

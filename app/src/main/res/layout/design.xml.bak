@@ -115,7 +115,7 @@
                 android:layout_height="156dp"
                 android:layout_alignParentBottom="true"
                 android:translationY="156dp" />
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
     <com.besome.sketch.design.DesignDrawer
