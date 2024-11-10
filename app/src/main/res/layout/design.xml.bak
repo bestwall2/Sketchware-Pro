@@ -87,7 +87,7 @@
                             android:layout_gravity="center_vertical"
                             android:scaleType="fitXY"
                             android:src="@drawable/ic_screen_portrait_grey600_24dp" />
-                        <com.besome.sketch.editor.view.ProjectFileSelector
+                        <com.google.android.material.card.MaterialCardView
                             android:id="@+id/file_selector"
                             android:layout_width="match_parent"
                             android:layout_height="36dp" />
