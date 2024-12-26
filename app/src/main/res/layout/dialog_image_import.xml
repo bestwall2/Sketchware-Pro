@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_height="wrap_content"
+     android:layout_width="match_parent"
+     android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+         android:layout_height="wrap_content"
+         android:layout_width="wrap_content"
+         app:cardElevation="2dp"
+         app:strokeWidth="0.5dp"
+         android:layout_marginTop="16dp"
+         app:cardCornerRadius="20dp"
+         android:layout_gravity="center">
+
+        <ImageView
+             android:layout_height="180dp"
+             android:layout_width="180dp"
+             tools:src="@drawable/user_48_grey_filled"
+             android:padding="4dp"
+             android:id="@+id/img"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textfield.TextInputLayout
+         android:layout_height="match_parent"
+         android:layout_width="match_parent"
+         app:hintEnabled="true"
+         android:hint="Enter image name"
+         android:layout_marginHorizontal="20dp"
+         android:layout_marginTop="16dp"
+         android:id="@+id/textInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+             android:layout_height="match_parent"
+             android:layout_width="match_parent"
+             android:imeOptions="actionDone"
+             android:singleLine="true"
+             android:maxLength="60"
+             android:inputType="text"
+             android:id="@+id/ed_input"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>
